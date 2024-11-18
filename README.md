@@ -1,1 +1,3 @@
-# 24001200-km7-raf-express-ch7
+Langkah-langkah pengerjaan : 
+1. npm i -y, 
+2. install prisma & dotenv

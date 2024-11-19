@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket.io Test</title>
+  </head>
+  <body>
+    <h1>Whatsup Bro !</h1>
+
+    <ul id="kumpulan-chat">
+
+    </ul>
+
+    <form id="form-input">
+        <input id="input-pesan" type="text" placeholder="Ketik disini !">
+
+        <button> Send</button>
+
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io(); // Membuat koneksi ke server
+
+        let formInput = document.getElementById('form-input');
+        let kumpulanCHat = document.getElementById('kumpulan-chat');
+        let inputPesan = document.getElementById('input-pesan')
+        formInput.addEventListener('submit', function(e){
+            e.preventDefault();
+            console.log(inputPesan.value)
+
+            if(inputPesan.value){
+                socket.emit('terima pesan', inputPesan.value);
+                inputPesan.value = '';
+                }
+        });
+    </script>
+  </body>
+</html>
